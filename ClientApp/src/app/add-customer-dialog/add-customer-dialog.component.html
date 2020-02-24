@@ -1,0 +1,33 @@
+<div class="add-customer-container">
+  <div *ngIf="editForm" [formGroup]="editForm">
+
+    <mat-form-field>
+      <mat-label>Customer</mat-label>
+      <input matInput formControlName="customerName">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Country</mat-label>
+      <mat-select formControlName="country">
+        <mat-option *ngFor="let country of countries" [value]="country">
+          {{country.countryName}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <div class="container" fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="end">
+      <div fxFlex="33%">
+        <button mat-menu-item (click)="onSave()">
+          <mat-icon>save</mat-icon>
+          <span>Save</span>
+        </button>
+      </div>
+      <div fxFlex="33%">
+        <button mat-menu-item (click)="onCancel()">
+          <mat-icon>cancel</mat-icon>
+          <span>Cancel</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
